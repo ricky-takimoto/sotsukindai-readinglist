@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ricky-takimoto.github.io/sotsukindai-readinglist/sitemap.xml
