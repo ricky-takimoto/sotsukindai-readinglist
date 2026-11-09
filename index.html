@@ -326,14 +326,14 @@
   .swstack { position: relative; flex: 1; width: min(calc(100% - 24px), 400px); min-height: 0; margin: 2px 0 4px; }
   .swc { position: absolute; inset: 0; display: flex; flex-direction: column; overflow: hidden; border-radius: 20px; background: #0b1a2a; border: 1px solid rgba(251,235,200,.16); box-shadow: 0 14px 40px rgba(0,0,0,.55); cursor: grab; will-change: transform; transition: transform .25s, box-shadow .15s; }
   .swc.under { transform: scale(.95) translateY(12px); filter: brightness(.6); } .swc.fly { pointer-events: none; z-index: 2; }
-  .swcov { position: relative; flex: 1 1 auto; min-height: 0; display: flex; justify-content: center; align-items: center; overflow: hidden; background: #0a1624; }
+  .swcov { position: relative; flex: 1 1 0; min-height: 30%; display: flex; justify-content: center; align-items: center; overflow: hidden; background: #0a1624; }
   .swbg { position: absolute; inset: -30px; background: center / cover no-repeat; filter: blur(26px) brightness(.45) saturate(1.2); transform: scale(1.1); }
   .swcov img { position: relative; height: 86%; max-width: 78%; object-fit: contain; border-radius: 3px; box-shadow: 0 10px 30px rgba(0,0,0,.65), 0 0 0 1px rgba(255,240,220,.2); pointer-events: none; }
   .swinfo { position: absolute; right: 12px; top: 12px; width: 32px; height: 32px; padding: 0; border-radius: 50%; font: italic 600 16px Georgia, serif; background: rgba(4,12,20,.6); }
   .swst { position: absolute; top: 22px; padding: 4px 14px; border: 3px solid; border-radius: 10px; font-size: 26px; font-weight: 800; letter-spacing: .08em; opacity: 0; pointer-events: none; background: rgba(4,12,20,.45); }
   .swst.like { left: 18px; color: #F2C66D; transform: rotate(-14deg); } .swst.nope { right: 18px; color: #ff8f8f; transform: rotate(14deg); } .swst.read { left: 50%; top: auto; bottom: 18px; transform: translateX(-50%); color: #A6DC8F; }
   .swc.sw-like .swst.like, .swc.sw-nope .swst.nope, .swc.sw-read .swst.read { opacity: 1 !important; }
-  .swtx { flex: 0 0 auto; padding: 12px 16px 16px; }
+  .swtx { flex: 0 1 auto; min-height: 0; overflow-y: auto; padding: 12px 16px 14px; touch-action: pan-y; }   /* あらすじは全部出し、そのぶん書影を小さくする */
   .swtx h3 { margin: 0; font-family: "Zen Old Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif; font-size: 20px; line-height: 1.35; color: #fff; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .swau { margin: 2px 0 0; font-size: 13px; color: #b6c3d2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .swau span { color: #8ea0b6; }
   .swchip { margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 5px; } .swchip i, .swchip b { font-style: normal; font-weight: 400; font-size: 11.5px; padding: 1px 9px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); color: #c9d4e0; }
@@ -342,7 +342,7 @@
   .swtg { margin: 6px 0 0; font-size: 12px; color: #8FD3F0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .swprog { display: flex; gap: 4px; width: min(calc(100% - 24px), 400px); margin: 0 0 6px; } .swprog i { flex: 1; height: 3px; border-radius: 2px; background: rgba(255,255,255,.14); } .swprog i.done { background: rgba(242,198,109,.75); } .swprog i.cur { background: rgba(255,255,255,.55); }
   .swend .swnext { font-size: 16px; color: #04101C; background: #F2C66D; border-color: #F2C66D; font-weight: 600; }
-  .swso { margin: 8px 0 0; font-size: 14px; line-height: 1.6; color: #eef2f7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .swso { margin: 8px 0 0; font-size: 14px; line-height: 1.6; color: #eef2f7; }
   .swc.open .swso { -webkit-line-clamp: unset; } .swc.open .swcov { flex-basis: 40%; }
   .swtut { display: none; width: min(calc(100% - 24px), 400px); justify-content: space-between; font-size: 12.5px; color: #F6DCA8; padding: 0 10px; } #swipe.tut .swtut { display: flex; }
   @keyframes swwig { 0%, 100% { transform: none; } 20% { transform: translateX(-34px) rotate(-4deg); } 45% { transform: translateX(34px) rotate(4deg); } 65% { transform: none; } }
@@ -358,7 +358,7 @@
   .swendh { font-family: "Zen Old Mincho", serif; font-size: 20px; color: #F6DCA8; margin: 0; } .swend p { margin: 0; color: #c2cddb; font-size: 14px; } .swend button { padding: 10px; border-radius: 12px; }
   .swtoast { position: fixed; left: 50%; bottom: calc(110px + env(safe-area-inset-bottom)); transform: translate(-50%, 10px); padding: 6px 14px; border-radius: 999px; background: rgba(242,198,109,.92); color: #04101C; font-size: 13px; opacity: 0; transition: opacity .2s, transform .2s; pointer-events: none; }
   .swtoast.on { opacity: 1; transform: translate(-50%, 0); }
-  @media (max-height: 640px) { .swso { -webkit-line-clamp: 2; } .swbtns button span { width: 50px; height: 50px; } }
+  @media (max-height: 640px) { .swso { font-size: 13px; } .swbtns button span { width: 50px; height: 50px; } }
   .swentry { display: flex; flex-direction: column; width: 100%; margin: 0 0 14px; padding: 12px 14px; border-radius: 14px; text-align: left; font-size: 15px; color: #F2C66D; border-color: rgba(242,198,109,.5); background: rgba(242,198,109,.08); }
   .swentry small { margin-top: 2px; font-size: 12px; color: #b6c3d2; }
   @media (max-height: 640px) { .swcov { height: 38%; } .swbtns button { width: 50px; height: 50px; } }
