@@ -45,7 +45,7 @@
   footer { margin-top: 52px; color: #8ea0b6; font-size: 13px; border-top: 1px solid rgba(255,255,255,.08); padding-top: 14px; }
   @media (max-width: 560px) { body { font-size: 15px; } h1 { font-size: 23px; } h2 { font-size: 19px; } .def { font-size: 15.5px; } }
 </style>
-<script>/* 別のページから来たときは、いつも上から読めるように（ページ内の見出しへのリンクで来たときはそこへ） */try{history.scrollRestoration="manual"}catch(e){}addEventListener("pageshow",function(){if(!location.hash)scrollTo(0,0)});</script>
+<script>/* 別のページから来たときは上から読めるように（ページ内の見出しへのリンクで来たときはそこへ）。「戻る」「進む」で来たときは、離れたときの位置に戻す（位置は履歴の一つひとつに覚えておく） */(function(){try{history.scrollRestoration="manual"}catch(e){}function save(){try{var s=history.state,n={};if(s&&typeof s==="object")for(var k in s)n[k]=s[k];n.__sy=scrollY;history.replaceState(n,"")}catch(e){}}function back(){var s=history.state;if(s&&typeof s.__sy==="number"){var y=s.__sy,go=function(){scrollTo(0,y)};go();requestAnimationFrame(go);setTimeout(go,150);return true}return false}var t;addEventListener("scroll",function(){clearTimeout(t);t=setTimeout(save,150)},{passive:true});addEventListener("pagehide",save);addEventListener("popstate",back);addEventListener("pageshow",function(e){var n=performance.getEntriesByType&&performance.getEntriesByType("navigation")[0];if((e.persisted||(n&&n.type==="back_forward"))&&back())return;if(!location.hash)scrollTo(0,0)})})();</script>
 </head><body><main>
 
 <nav class="crumb" aria-label="パンくずリスト"><a href="./">卒近代への330冊</a> › <span aria-current="page">ソーシャルプロデューサーとは何か</span></nav>

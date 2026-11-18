@@ -36,7 +36,7 @@
   @media (max-width: 560px) { dl.terms { grid-template-columns: 1fr; } dl.terms dd { margin-bottom: 8px; } }
   .note { color: #9fb0c4; font-size: 13.5px; }
   footer { margin-top: 48px; color: #8ea0b6; font-size: 13.5px; }
-</style><script>/* 別のページから来たときは、いつも上から読めるように（ページ内の見出しへのリンクで来たときはそこへ） */try{history.scrollRestoration="manual"}catch(e){}addEventListener("pageshow",function(){if(!location.hash)scrollTo(0,0)});</script></head><body><main>
+</style><script>/* 別のページから来たときは上から読めるように（ページ内の見出しへのリンクで来たときはそこへ）。「戻る」「進む」で来たときは、離れたときの位置に戻す（位置は履歴の一つひとつに覚えておく） */(function(){try{history.scrollRestoration="manual"}catch(e){}function save(){try{var s=history.state,n={};if(s&&typeof s==="object")for(var k in s)n[k]=s[k];n.__sy=scrollY;history.replaceState(n,"")}catch(e){}}function back(){var s=history.state;if(s&&typeof s.__sy==="number"){var y=s.__sy,go=function(){scrollTo(0,y)};go();requestAnimationFrame(go);setTimeout(go,150);return true}return false}var t;addEventListener("scroll",function(){clearTimeout(t);t=setTimeout(save,150)},{passive:true});addEventListener("pagehide",save);addEventListener("popstate",back);addEventListener("pageshow",function(e){var n=performance.getEntriesByType&&performance.getEntriesByType("navigation")[0];if((e.persisted||(n&&n.type==="back_forward"))&&back())return;if(!location.hash)scrollTo(0,0)})})();</script></head><body><main>
 
 <h1>Graduating from Modernity and the Suzukan Seminar</h1>
 <p class="sub">Sotsu-kindai (卒近代) — a learning community that trains social producers and epoch makers</p>
